@@ -2,8 +2,10 @@ allTasks = [
   {
     id: "1",
     work: "clean home",
+    ischecked: false,
   },
 ];
+completedTask=[];
 function updateUiList() {
     clearUl();
     
@@ -19,6 +21,10 @@ function clearUl(){
 }
 
 function MakeLiList(task) {
+    if(task.ischecked){
+        const index=allTasks.findIdex((t)=> t.id == task.id)
+        completedTask.push(allTasks.splice(index,1))
+    }else{
   const li = document.createElement("li");
   li.setAttribute("id", `task-${task["id"]}`);
     
@@ -40,17 +46,23 @@ function MakeLiList(task) {
 
 
   inputCheckBox.addEventListener('change', function() {
-    const strikePara =document.querySelector("#checked-task")
   if (inputCheckBox.checked) {
+    const strikePara =document.querySelector(".checked-task")
     p.style.textDecoration = "line-through";
+    allTasks['ischecked'] = true;
     strikePara.appendChild(li)
-
   } else {
+    const ul = document.querySelector(".unchecked-task");
     p.style.textDecoration = ""
+    allTasks['ischecked'] = false;
+    ul.appendChild(li)
   }
+  updateUiList();
 });
+return li;
+    }
 
-  return li;
+  
 }
 function addForm(){
      const form =document.querySelector("#add-form") 
@@ -62,7 +74,8 @@ function addForm(){
         
      const task = {
         id: new Date().getTime(),
-        work: taskInput
+        work: taskInput,
+        ischecked: false
      }
      addtask(task);
      updateUiList();
