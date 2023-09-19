@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f2f2f2;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    padding: 30px;
+    margin: 20px auto;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgb(0,0,0,0.3);
+}
+h1{
+    padding: 10px;
+    text-align: center;
+}
+input[type=text]{
+    width: 65%;
+    padding: 5px;
+    margin: 10px;
+    font-size: 18px;
+}
+input[type=submit]{
+    padding: 8px;
+    font-size: 14px;
+    background-color: antiquewhite;
+    border: 0;
+    border-radius: 15px;
+}
+.app{
+    padding: 30px;
+}
+.unchecked-task li{
+    padding: 10px;
+    list-style: none;
+    display: flex;
+}
+.unchecked-task li p{
+    padding-left: 5px;
+}
