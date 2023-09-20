@@ -84,6 +84,8 @@ function sortArray() {
 }
 function addForm() {
   const form = document.querySelector("#add-form");
+  const textInput = document.getElementById('textInput');
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     let taskInput = document.querySelector("#task").value;
@@ -94,8 +96,13 @@ function addForm() {
       ischecked: false,
     };
     addtask(task);
+    clearValue();
     updateUiList();
   });
+}
+function clearValue(){
+  const taskInput = document.querySelector("#task")
+  taskInput.value="";
 }
 function addtask(task) {
   allTasks.push(task);
@@ -115,6 +122,16 @@ function getFromLocalStorage() {
     allTasks = JSON.parse(str);
   }
 }
+
+const inputField = document.getElementById("task");
+const submitButton = document.getElementById("create-todo");
+inputField.addEventListener("input", function () {
+  if (inputField.value !== "") {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+});
 getFromLocalStorage();
 updateUiList();
 addForm();
