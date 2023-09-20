@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background-color: #f2f2f2;
+    background-color: #F2F2F2;
     font-family: 'Courier New', Courier, monospace;
 }
 .container{
@@ -39,13 +39,5 @@ input[type=submit]{
     display: flex;
 }
 .unchecked-task li p{
-    padding-left: 5px;
-}
-.checked-task li{
-    padding: 10px;
-    list-style: none;
-    display: flex;
-}
-.checked-task li p{
     padding-left: 5px;
 }
